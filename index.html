@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>ポモドーロタイマー</title>
+    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
+    <link rel="shortcut icon" href="images/favicon-16x16.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <p class="title-text">POMODORO TIMER</p>
+        <button class="fas" id="menu-icon">&#xf039;</button>
+        <p class="right-text">Most efficient time management</p>
+        <button class="far close-menu-icon" id="close-menu-icon">&#xf057;</button>
+    </header>
+    <div class="timer-container">
+        <p class="timer" id="timer">25:00.000</p>
+    </div>
+    <div class="tomato">
+        <img id="tomato" src="images/tomato.png" alt="赤トマトの画像">
+    </div>
+    <footer>
+        <button type="button" class="fas" id="start-stop-btn">&#xf04b;</button>
+        <div class="setCount" id="setCount">00</div>
+        <div class="status" id="status">Let's start</div>
+    </footer>
+    <div class="slide-out" id="menu">
+        <div class="menu-container">
+            <ul id="menus">
+                <li id="about-pomodoro">ポモドーロとは</li>
+                <li id="set-count-config">セット数</li>
+                <li id="alarm-config">アラームの設定</li>
+                <li id="dark-theme">ダークテーマ</li>
+            </ul>
+        </div>
+    </div>
+    <div id="non-menu"></div>
+    <div class="menu-back" id="menu-back"></div>
+    <div class="slide-out" id="menu-contents">
+        <div class="about-pomodoro-main" id="about-pomodoro-main">
+            <div class="h1-box">
+                <h1>ポモドーロとは</h1>
+            </div>
+            <div class="gray-back">
+                <div class="text-contents" id="text-contents">
+                    <p>「ポモドーロ・テクニック」。これは、25分の集中と5分の休憩を繰り返すというもの。作家のフランチェスコ・シリロによって考案されたもので、「ポモドーロ」という名前は彼が学生時代に愛用していたトマト型のキッチンタイマーにちなんでつけられたそうです。その方法論はシンプルで、取り組むべきタスクを短い時間単位に分割し、5分間の休憩を挟みながら処理していくだけ。時間をかけずに集中状態に入るための訓練にもなり、続けていけば、注意力や集中力も強化されます。集中する時間を区切り、「もう少しやりたかった」というところで休憩に入ることで、集中力を高める狙いです。作業に飽きる前に休憩することで、再開したときもスムーズに集中状態に入ることができます。
+                    </p>
+                    <a href="https://www.amazon.co.jp/dp/4761271760" target="_blank">引用：自分を操る超集中力</a>
+                </div>
+            </div>
+        </div>
+        <div class="set-count-config-main" id="set-count-config-main">
+            <div class="h1-box">
+                <h1>セット数</h1>
+            </div>
+            <div class="gray-back">
+                <form action="" name="set-form" id="set-form">
+                    <input type="text" class="input-set-text light-theme-placeholder" id="input-set-text" placeholder="セット数を入力してください">
+                    <input type="text" name="dummy" style="display:none;">
+                    <p id="set-error"></p>
+                    <input type="button" id="input-set-decision" value="決定">
+                </form>
+            </div>
+        </div>
+        <div class="alarm-config-main" id="alarm-config-main">
+            <div class="h1-box">
+                <h1>アラームの設定</h1>
+            </div>
+            <div class="gray-back">
+                <h2 class="sound-type">音の種類</h2>
+                <div class="alarm-type-btns">
+                    <input type="radio" name="radio" class="alarm-radio" id="radio1" checked>
+                    <label for="radio1">01</label>
+                    <input type="radio" name="radio" class="alarm-radio" id="radio2">
+                    <label for="radio2">02</label>
+                    <input type="radio" name="radio" class="alarm-radio" id="radio3">
+                    <label for="radio3">03</label>
+                    <input type="radio" name="radio" class="alarm-radio" id="radio4">
+                    <label for="radio4">04</label>
+                    <input type="radio" name="radio" class="alarm-radio" id="radio5">
+                    <label for="radio5">05</label>
+                </div>
+                <h2 class="volume">音量</h2>
+                <input type="range" id="volume-range" value="50" min="1" max="100">
+                <h2 class="preview">プレビュー</h2>
+                <button type="button" class="fas" id="preview-button">&#xf04b;</button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

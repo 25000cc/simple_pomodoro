@@ -1,0 +1,501 @@
+* {
+    box-sizing: border-box;
+    line-height: 1.0;
+}
+
+html, body {
+    height: calc(100% - 55px);
+}
+
+body {
+    color: #7A7A7A;
+    background-color: #F9F9F9;
+    font-family: "Prompt", sans-serif; /*英語はPrompt、日本語、数字はNoto Sans JP*/
+    margin: 55px 55px;
+    position: relative;
+    overflow: hidden;
+    /* transition: 0.5s; */
+}
+
+button, input {
+	background: none;
+	border: none;
+	outline: none;
+}
+
+ul {
+    list-style: none;
+}
+
+/* header */
+#menu-icon {
+    font-size: 47px;
+    color: #7A7A7A;
+    position: absolute;
+    top: 0;
+    padding: 0;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#menu-icon:hover {
+    color: #444444;
+}
+
+.title-text {
+    font-size: 28px;
+    font-weight: bold;
+    letter-spacing: .26em;
+    text-align: center;
+    margin: 0;
+}
+
+.right-text {
+    font-size: 15px;
+    font-weight: 500;
+    float: right;
+    margin: 0;
+    transform: rotate(90deg);
+    position: absolute;
+    transform-origin: left top 0;
+    right: -238px;
+    top: 0;
+}
+
+.close-menu-icon {
+    font-size: 55px;
+    color: #242424;
+    position: absolute;
+    top: 0;
+    padding: 0;
+    cursor: pointer;
+    transition: 0.3s;
+    right: 120%;
+    z-index: 5;
+}
+
+.close-menu-icon-show {
+    right: 0;
+}
+
+/* timer-container */
+.timer-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@media screen and (min-width:1280px) {
+    .timer {
+        font-family: "Consolas";
+        font-size: 130px;
+        font-weight: bold;
+        margin: 0;
+        right: 5vw;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+}
+
+@media screen and (max-width:1280px) {
+    .timer {
+        font-family: "Consolas";
+        font-size: 130px;
+        font-weight: bold;
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
+    }
+}
+
+/* tomato */
+@media screen and (min-width:1280px) {
+    .tomato {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translateY(-50%) translateX(-50%);
+        z-index: -1;
+    }
+}
+
+@media screen and (max-width:1280px) {
+    .tomato {
+        position: absolute;
+        top: 50%;
+        left: calc(50% + 400px);
+        transform: translateY(-50%) translateX(-50%);
+        z-index: -1;
+    }
+}
+
+/* footer */
+.setCount {
+    font-family: "Noto Sans JP";
+    font-weight: 700;
+    font-size: 120px;
+    position: absolute;
+    bottom: 0;
+}
+
+.status {
+    font-size: 15px;
+    font-weight: 500;
+    float: right;
+    margin: 0;
+    transform: rotate(90deg);
+    position: absolute;
+    transform-origin: right bottom 0;
+    right: 15px;
+    bottom: 0;
+}
+
+#start-stop-btn {
+    font-size: 95px;
+    color: #7A7A7A;
+    position: absolute;
+    bottom: 0;
+    right: 148.969px;
+    padding: 0;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#start-stop-btn:hover {
+    color: #444444;
+}
+
+/* menu */
+#menu {
+    width: 21vw;
+    height: calc(100% + 110px);
+    position: absolute;
+    left: -55px;
+    top: -55px;
+    z-index: 4;
+    background-color: #FFFFFF;
+    transition: 0.4s;
+}
+
+.menu-container {
+    width: 53%;
+    height: 39.44%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 25%;
+    border-left: solid 10px #7A7A7A;
+}
+
+#menus {
+    text-align: right;
+    font-family: "Noto Sans JP";
+    font-size: 2.5vh;
+    font-weight: 900;
+    color: #242424;
+    margin: 0;
+    padding: 0;
+}
+
+#menu li {
+    cursor: pointer;
+}
+
+#set-count-config {
+    position: absolute;
+    top: calc(33.3% - 12.5px);
+    right: 0;
+}
+
+#alarm-config {
+    position: absolute;
+    bottom: calc(33.3% - 7px);
+    right: 0;
+}
+
+#dark-theme {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+/* non-menu */
+#non-menu {
+    width: calc(79% + 110px);
+    height: calc(100% + 110px);
+    position: absolute;
+    right: -55px;
+    top: -55px;
+    display: none;
+    z-index: 2;
+}
+
+.slide-out {
+    transform: translateX(-150%);
+}
+
+.slide-in {
+    transform: translateX(0%);
+}
+
+/* menu-back */
+.menu-back {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: -55px;
+    left: -55px;
+    background: black;
+    transition: 0.5s;
+    opacity: 0;
+    visibility: hidden;
+    z-index: 1;
+}
+
+.menu-back-fade-in {
+    opacity: 0.7;
+    visibility: visible;
+}
+
+/* menu-contents */
+#menu-contents {
+    width: calc(79% + 110px);
+    height: calc(100% + 110px);
+    position: absolute;
+    right: -55px;
+    top: -55px;
+    background: white;
+    z-index: 3;
+    transition: 0.4s;
+}
+
+.about-pomodoro-main, .set-count-config-main, .alarm-config-main {
+    width: 100%;
+    height: 39.44%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: 0.4s;
+    opacity: 0;
+    visibility: hidden;
+}
+
+.mains-fade-in {
+    opacity: 1;
+    visibility: visible;
+}
+
+.h1-box {
+    width: 297px;
+    height: 35px;
+    position: relative;
+    border-left: solid 3px #A7A7A7;
+    color: #242424;
+}
+
+.h1-box h1 {
+    position: absolute;
+    top: 0;
+    margin: 0 0 0 45px;
+    font-size: 36px;
+    font-family: "Noto Sans JP";
+    font-weight: 900;
+    white-space: nowrap;
+}
+
+.gray-back {
+    height: 77.1%;
+    width: 100%;
+    background: #E8E8E8;
+    position: absolute;
+    bottom: 0;
+}
+
+.text-contents, #input-set-text, #input-set-decision, #set-error {
+    position: absolute;
+    margin: 0 0 0 45px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-family: "Noto Sans JP";
+}
+
+/* about-pomodoro-contents */
+.text-contents {
+    width: 72%;
+    font-size: 1.8vh;
+    font-weight: 700;
+    color: #7A7A7A;
+}
+
+.text-contents p {
+    line-height: 3vh;
+    margin: 0;
+}
+
+.text-contents a {
+    font-size: 2vh;
+    position: absolute;
+    right: 0;
+    text-decoration: none;
+    color: inherit;
+}
+
+/* set-count-config-contents */
+.input-set-text, #input-set-decision {
+    height: 37px;
+    font-weight: 700;
+    font-size: 22px;
+}
+
+.input-set-text {
+    background: #FFF;
+    width: 414px;
+    color: #242424;
+    padding: 0 10px;
+}
+
+.light-theme-placeholder::-webkit-input-placeholder {
+    color: #E8E8E8;
+}
+
+.dark-theme-placeholder::-webkit-input-placeholder {
+    color: #474747;
+}
+
+#input-set-decision {
+    background: #7A7A7A;
+    width: 73px;
+    color: #FFF;
+    left: 473px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#input-set-decision:hover {
+    background: #242424;
+}
+
+#set-error {
+    color: red;
+    font-size: 13px;
+    font-weight: 700;
+    top: calc(50% + 35px);
+}
+
+/* alarm-config-contents */
+.sound-type, .volume, .preview {
+    font-size: 25px;
+    font-family: "Noto Sans JP";
+    font-weight: 700;
+    color: #7A7A7A;
+    position: absolute;
+    margin: 0 0 0 45px;
+}
+
+.sound-type {
+    position: absolute;
+    top: 15.5%;
+}
+
+.volume {
+    position: absolute;
+    top: 56.4%;
+}
+
+.alarm-type-btns {
+    font-family: "Noto Sans JP";
+    font-size: 25px;
+    font-weight: 600;
+    color: #7A7A7A;
+    margin: 0 0 0 67px;
+    position: absolute;
+    top: 30%;
+    cursor: default;
+}
+
+.alarm-radio {
+    display: none;
+}
+
+.alarm-radio + label {
+    padding-left: 53px;
+    position: relative;
+    margin-right: 116px;
+    cursor: pointer;
+}
+
+.alarm-radio + label::before{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 0;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #FFF;
+}
+
+.alarm-radio:checked + label{
+    color: #242424;
+}
+
+.alarm-radio:checked + label::after{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: 4px;
+    width: 10px;
+    height: 10px;
+    background: #242424;
+    border-radius: 50%;
+}
+
+#volume-range {
+    -webkit-appearance: none;
+    appearance: none;
+    background: #FFF;
+    height: 4px;
+    width: 220px;
+    margin: 0 0 0 67px;
+    position: absolute;
+    top: calc(73.7% + 15px);
+}
+
+#volume-range::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    background: #242424;
+    height: 15px;
+    width: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.preview {
+    position: absolute;
+    top: 56.4%;
+    left: 289px;
+}
+
+#preview-button {
+    font-size: 40px;
+    color: #7A7A7A;
+    position: absolute;
+    top: 73.7%;
+    left: 479px;
+    padding: 0;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+#preview-button:hover {
+    color: #242424;
+}
